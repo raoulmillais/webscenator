@@ -1,0 +1,121 @@
+/* BASIC: =Reset
+------------------------------------------------------- */
+/* force HTML5 elements to be displayed as block-level elements
+and standardise default styles across all browsers */
+article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary { display:block; }
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a, abbr, address, cite, code,
+del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,
+legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary { margin:0; padding:0; border:0; outline:0; vertical-align:baseline; background:transparent; }
+:focus { outline:none; }
+table { border-collapse:collapse; border-spacing:0; border:solid 2px transparent; }
+address,caption,cite,code,dfn,em,strong,th,var { font-style:normal; font-weight:normal; }
+ol,ul { list-style:none; }
+caption,th { text-align: left; }
+q:before,q:after { content:''; }
+abbr,acronym { border:0; }
+
+/* BASIC: =fonts
+------------------------------------------------------- */
+@font-face { 
+    font-family: Lobster; 
+    src: local("Lobster"), 
+         url(../fonts/lobster.ttf) format("truetype");
+}
+
+html { position: absolute; }
+body { background: #19191a; font-family:Helvetica,Verdana,Arial,sans-serif; font-size:14px; font-weight: bold; color: #656665; margin:0; padding: 0; top: 0; left: 0; position: absolute; }
+
+canvas { border: 10px solid #252525; width: 400px; float: left; z-index: 0; position: relative; top: 10px; left: 10px; }
+
+/* STRUCTURE: =common
+------------------------------------------------------- */
+.slim { width: 150px; height: 200px; overflow: auto; }
+.fat { width: 496px; height: 100px; overflow: auto; margin: 10px 0; }
+
+/* STRUCTURE: =top-activity-bar
+------------------------------------------------------- */
+#top-activity-bar { position: fixed; top: 0; left: 0; height: 75px; width: 100%; border-bottom: 10px solid #252525; z-index: 2; }
+#stage-control { float: right; margin-right: 220px;  }
+
+/* STRUCTURE: =editor
+------------------------------------------------------- */
+#editor .content { width: 3000px; height: 3000px; z-index: 0; }
+#editor-container .jScrollPaneContainer { margin-top: 95px; margin-right: 220px; }
+
+/* STRUCTURE: =dock
+------------------------------------------------------- */
+.dock { background: #19191a; padding: 2px; margin: 0; z-index: 1; }
+
+#bottom-dock { border-top: 10px solid #252525; position: fixed; height: 150px; width: 100%; bottom: 0; left: 0; }
+#bottom-dock > .content { height: 150px; }
+
+#bottom-dock .palette { float: left; }
+
+#right-dock { border-left: 10px solid #252525; position: fixed; height: 100%; width: 200px; top: 0; right: 0; z-index: 2; }
+#right-dock > .content { height: 100%; width: 200px; }
+
+/* COMPONENT: =stage-timer
+------------------------------------------------------- */
+#stage-timer { width: 300px; }
+#stage-timer.started { color: #19f0fc; }
+.timer { font-size: 36px; margin: 10px; font-weight: normal; float: left; }
+#stage-timer .milliseconds, #stage-timer .seconds, #stage-timer .minutes { font-weight: normal; }
+.button { float: left; margin-top: 15px; }
+
+/* COMPONENT: =activity-bar
+------------------------------------------------------- */
+h1.logo { font-family:"Lobster", arial, serif; font-size:40px; float: left; color: #c9ff20; margin: 10px 10px 0 10px; }
+
+/* COMPONENT: =palette
+------------------------------------------------------- */
+.palette { border: 10px solid #252525; padding: 2px; margin: 10px 10px 0 10px; }
+.palette h3 { background: #252525; margin: 0 0 5px 0; padding: 5px; font-size: 11px; font-weight: bold; }
+.palette h4 { font-size: 11px; }
+.palette.slim .content { overflow: hidden;  font-size: 11px; width: 150px; height: 170px; }
+.palette.fat .content { overflow: hidden; font-size: 11px; width: 496px; height: 71px; }
+
+/* COMPONENT: =jScrollPane
+------------------------------------------------------- */
+.jScrollPaneContainer { position: relative; overflow: hidden; z-index: 1; }
+.jScrollPaneTrack { position: absolute; cursor: pointer; right: 0; top: 0; height: 100%; background: #252525; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;}
+.jScrollPaneDrag { position: absolute; background: #666; cursor: pointer; overflow: hidden; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; }
+.jScrollPaneDragTop { position: absolute; top: 0; left: 0; overflow: hidden; }
+.jScrollPaneDragBottom { position: absolute; bottom: 0; left: 0; overflow: hidden;}
+a.jScrollArrowUp { display: block; position: absolute; z-index: 1; top: 0; right: 0; text-indent: -2000px; overflow: hidden; /*background-color: #666;*/ height: 9px;}
+a.jScrollArrowUp:hover { /*background-color: #f60;*/}
+a.jScrollArrowDown { display: block; position: absolute; z-index: 1; bottom: 0; right: 0; text-indent: -2000px; overflow: hidden; /*background-color: #666;*/ height: 9px;}
+a.jScrollArrowDown:hover { /*background-color: #f60;*/}
+a.jScrollActiveArrowButton, 
+a.jScrollActiveArrowButton:hover { /*background-color: #f00;*/ }        
+
+/* COMPONENT: =color-picker
+------------------------------------------------------- */
+.color-picker { position: relative; width: 36px; height: 36px; }
+.color-picker div { width: 30px; height: 30px; background: url(../images/select.png) no-repeat center; }
+.color-picker div.transparency-background { position: absolute; top: 3px; left: 3px; background: url(../images/select_background.png) no-repeat center; }
+.color-picker div.color-preview { position: absolute; top: 0; left: 0; opacity: 1; }
+.rgba-picker { clear: both; }
+.rgba-picker span, .rgba-picker .color-picker, .rgba-picker input { float: left; }
+
+.style-editor span { font-size: 11px; }
+.stroke-weight-container { clear: both; }
+
+/* COMPONENT: =properties-palette
+------------------------------------------------------- */
+.property-label { display: inline; width: 74px; font-size: 11px; float: left; }
+input.property-value { height: 14px; font-size: 11px; width: 25px; }
+
+/* COMPONENT: =timeline-palette
+------------------------------------------------------- */
+#timeline-palette p { clear: both; margin: 5px 0; overflow: auto; }
+label, .color-picker-label { display: block; width: 150px; padding-top: 2px;  }
+input { width: 50px; display: block; float: left; text-align: bottom; margin: 0 5px;  border: 2px solid #252525; text-align: center; font-family:Helvetica,Verdana,Arial,sans-serif; font-size:14px; background: #656665}
+input.update { width: 75px; }
+#stage-time { width: 120px; }
+
+/* COMPONENT: =selectable
+------------------------------------------------------- */
+.selectable li, .selectable li { cursor: pointer; }
+.selectable li.selected, .selectable li.selected { background-color: #252525; color: #19191a; }
+

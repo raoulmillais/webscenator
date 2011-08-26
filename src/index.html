@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!--[if IE]>
+    <script type="text/javascript>window.location = 'http://upgradeyourbrowser.org/';</script>
+    <![endif]-->
+    <title>Canvas IDE</title>
+    <meta charset="utf-8" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <link href="css/colorpicker.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../build/combined.js"></script>
+</head>
+
+<body>
+    
+    <div id="top-activity-bar" class="dock">
+        <h1 class="logo">WebScenator</h1>
+        <div id="stage-control">
+            <div class="rewind button"></div>
+            <div class="pause button"></div>
+            <div class="play button"></div>
+            <div id="stage-timer" class="timer">
+                <div class="timer"><span class="minutes">0</span>m</div>
+                <div class="timer"><span class="seconds">0</span>s</div>
+                <div class="timer"><span class="milliseconds">0</span>ms</div>
+            </div>
+        </div> <!-- stage-control -->
+    </div> <!-- top-activity-bar -->
+    
+    <div id="editor-container">
+        <div id="editor">
+            <div class="content">
+                <canvas id="tile-canvas" width="400" height="400">
+                    <div>
+                        Your browser does not support canvas
+                    </div>
+                </canvas>
+            </div> <!-- content -->
+        </div> <!-- editor -->
+    </div> <!-- editor-container -->
+    
+    <div id="right-dock" class="dock">
+        <div class="content">
+    
+            <div id="tools-palette" class="slim palette">
+                <h3>Tools</h3>
+                <div class="content">
+                    <div id="shape-selector">
+                        <ul id="shapes" class="selectable">
+                            <li id="shape-circle">Circle</li>
+                            <li id="shape-rectangle" class="selected">Rectangle</li>
+                        </ul>
+                    </div>    
+                </div> <!-- content -->
+            </div> <!-- tools-palette -->
+            
+            <div id="style-palette" class="slim palette">
+                <h3>Style</h3>
+                <div class="content">
+                    <ul class="style-editor">
+                        <li id="stroke-color" class="stroke rgba-picker">
+                            <span class="property-label">Stroke</span>
+                            <div class="color-picker"><div class="transparency-background"><div class="transparency-viewer"></div><div class="color-preview"></div></div></div>
+                            <input id="stroke-opacity" class="property-value opacity" name="stroke-opacity" type="text" value="1" />
+                        </li>
+                        <li id="fill-color" class="fill rgba-picker">
+                            <span class="property-label">Fill</span>
+                            <div class="color-picker"><div class="transparency-background"><div class="transparency-viewer"></div><div class="color-preview"></div></div></div>
+                            <input id="fill-opacity" class="property-value opacity" name="fill-opacity" type="text" value="0.5" />
+                        </li>
+                        <li class="stroke-weight-container">
+                            <label class="property-label">Weight</label>
+                            <input id="stroke-weight" class="property-value stroke-weight" name="stroke-weight" type="text" value="3" />
+                        </li>
+                    </ul>
+                </div> <!-- content -->
+            </div> <!-- style-palette -->
+
+            <div id="properties-palette" class="slim palette">
+                <h3 class="name">Properties</h3>
+            </div>
+
+        </div> <!-- content -->
+    </div> <!-- right-dock -->
+    
+    <div id="bottom-dock" class="dock">
+        <div class="content">
+            <div id="project-viewer-palette" class="fat palette">
+                <h3>Project</h3>
+                <div class="content">
+                    <ul id="project-viewer" class="selectable">
+                        <li class="item">
+                            <span class="name"></span>
+                        </li>
+                    </ul>
+                </div> <!-- content -->
+            </div>
+            
+
+        </div> <!-- content -->
+    </div> <!-- bottom-dock -->
+</body>
+
+</html>
